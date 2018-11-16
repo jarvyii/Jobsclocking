@@ -22,12 +22,18 @@ This is a dynamic WEB aplication. Its designed to be sale and use for differents
 You have to initiate the system  with the Costumer information (Company Name, WEB address). It is store in a JSON file (setup.json).
 
 The purpose is to create a website where the employees can update their wrorked hour per weekly periods and they can access to see and print old periods.
+
 PENDING: HH-RR department will have the access to add or delete users from the system and modify the timesheet of the last closed period.
          The Supervisor must approobe it every week and must have access to all his employee.
+
 You has to login using one of the predifined users created by HH-RR Department. 
-The he Login Form has to validate the User and Password through my own JavaScript function with the stored info in the users.json file.
+
+The Login Form has to validate the User and Password through my own JavaScript function with the stored info in the users.json file.
+
 The employee can modify any worked hour during the active week. You can verify how with my owns JavaScript functions, 
+
 I update the totals by Column, Row and the Grand total of the week.
+
 I add in the rooth folder 2 images (login.jpg and timesheet.jpg) to show you how you will see the login form and timesheet forms working in the right way.
 		 
 
