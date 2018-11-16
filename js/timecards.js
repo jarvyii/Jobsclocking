@@ -278,7 +278,11 @@ function writeDays( Timesheet){
   function addDay(i, j, value, disabledValue){
          var p = document.createElement("INPUT");
          p.id= "Data"+i+j;
-         p.className="form-control";
+         if ( (i == totalWayPayments) || (j == 8) ) {
+               p.className="form-control totalInfo";
+           } else {
+               p.className="form-control";
+           }
          p.setAttribute("type", "number");
          p.setAttribute("value", value);
         p.min="0";

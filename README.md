@@ -1,28 +1,34 @@
 Jobsclocking System Version 1.0
 
 **************************************************************************************
-REQUIREMENTS
+REQUIREMENTS TO RUN THE PROJECT
 
- -----> The WEB uses JSON Files store in a WEB Server.
-  1)- WEB Server like Apache. In my case, I used NAMP and WAMP.
+I use JSON Files to store data.
+
+ 1- You need to use a WEB Server in oder to access to my 5 JSON Files. I use NAMP or WAMP in my Computer.
   
-  2)- An specific user to Login:
+ 2- You have to Login using one of this users:
   
       - User: jr@ts.com    Password: 123
-	  
-	    or
-		
 	  - User: av@ts.com    Password: 123
 	  
 	  You can create your own User and Password updating the JSON file:  users.json	  
 *****************************************************************************************
+ 
 Description
-This is a dinamic WEB aplication. Its designed to be sale and use for different kind of Companies or individual person.
+
+This is a dynamic WEB aplication. Its designed to be sale and use for differents Companies or individual person. 
+
 You have to initiate the system  with the Costumer information (Company Name, WEB address). It is store in a JSON file (setup.json).
 
-The purpose is to create a website where the employee can update their timesheet per weekly periods and they can access to see and print old periods.
+The purpose is to create a website where the employees can update their wrorked hour per weekly periods and they can access to see and print old periods.
 PENDING: HH-RR department will have the access to add or delete users from the system and modify the timesheet of the last closed period.
          The Supervisor must approobe it every week and must have access to all his employee.
+You has to login using one of the predifined users created by HH-RR Department. 
+The he Login Form has to validate the User and Password through my own JavaScript function with the stored info in the users.json file.
+The employee can modify any worked hour during the active week. You can verify how with my owns JavaScript functions, 
+I update the totals by Column, Row and the Grand total of the week.
+I add in the rooth folder 2 images (login.jpg and timesheet.jpg) to show you how you will see the login form and timesheet forms working in the right way.
 		 
 
 1. Custom CSS Classes
@@ -31,6 +37,7 @@ PENDING: HH-RR department will have the access to add or delete users from the s
   .headlabel 
   .img-jumbo
   .cancelbtn
+  .totalInfo
   
 2- JSONs Files.Example of files with specific contents.
            SETUP.JSON

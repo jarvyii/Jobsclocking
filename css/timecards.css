@@ -10,6 +10,9 @@ body {
 .headlabel {
   color:#00004d;
 }
+.totalInfo {
+  font-weight: bold;
+}
 .navbar-color{
     background-color: #00004d;
 }
