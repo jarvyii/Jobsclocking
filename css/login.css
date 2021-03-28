@@ -5,7 +5,10 @@
     vertical-align: middle;
     margin-top: 40px;
     margin-left: 25%;
-    display: none;
+   /* display: none; */
+}
+#timesheet{
+    display:none;
 }
 /* Full-width inputs */
 input[type=text], input[type=password] {
