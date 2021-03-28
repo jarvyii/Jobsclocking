@@ -84,7 +84,7 @@ function writeDays( objTimecard ){
         columnTotal =0;
         for(var j=1; j<8; j++){
             addDay(i, j, objTimecard[i]['day'+j], !document.getElementById("activePeriod").value )
-            columnTotal += Number(objTimecard[i][j]);
+            columnTotal += Number(objTimecard[i]['day'+j]);
           }
         addDay(i, j, columnTotal, true); // Fill the Info in the TOTAL  of the i row
       }
@@ -161,6 +161,7 @@ function setHeaderTimecard(User) {
     document.getElementById("fullname").innerHTML += User.lastname + ",  "+ User.firstname;
     document.getElementById("period").innerHTML += firstDay + " to "+ lastDay;
     document.getElementById("id-date").innerHTML +=  getFormattedDate(dToday);
+    document.getElementById("activePeriod").value = true;
 
     return Period;
 
