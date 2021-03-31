@@ -69,11 +69,11 @@
        <div id = "divlogin"></div>
        <!-- Timesheet form to update the worked hour-->
       <div id="timesheet" class="container text-center d-none">
-          <form>
+          <form id="formTimecard" class="formTimecard">
              <!--Hide field to be use in others area of the web -->
-             <input type="hidden" id = "idUser" name="idUser">
-             <input type="hidden" id = "idPeriod" name="idPeriod">
-             <input type="hidden" id = "activePeriod" name="activePeriod">
+             <input type="hidden" id = "idUser" name="idUser" class = "formInput">
+             <input type="hidden" id = "idPeriod" name="idPeriod" class = "formInput">
+             <input type="hidden" id = "activePeriod" name="activePeriod" class = "formInput">
             <!-- The head of the timesheet -->
               <div class="row">
                 <div class="col-md-4">

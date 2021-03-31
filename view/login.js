@@ -94,7 +94,6 @@ function ajaxGET( myUrl ) {
  
                     } else {
                         
-                      
                         let myObj = JSON.parse(this.responseText);
                        
                         resolve( myObj);

@@ -36,6 +36,8 @@ function writePaymentsDescription(){
  ********************************************************************************/
  function updateTotalOnChange(){
     var numColumn =  this.id[5];
+
+    
     var numRow = this. id[4];
     // To update the Total of the Row
     document.getElementById("Data"+numRow+8).value=0;
@@ -44,26 +46,30 @@ function writePaymentsDescription(){
       valTotal += Number(document.getElementById("Data"+numRow+j).value)
       }
     document.getElementById("Data"+numRow+8).value = valTotal;
+
     valTotal = 0;
-    for (var i=1; i< totalWayPayments; i++ ){
+    for (var i=0; i< totalWayPayments-1; i++ ){
       valTotal += Number(document.getElementById("Data"+i+numColumn).value)
       }
-    document.getElementById("Data"+totalWayPayments+numColumn).value = valTotal;
-    document.getElementById("Data"+totalWayPayments+8).value = 0;
+    const lastRow =  totalWayPayments-1;
+    document.getElementById("Data" + lastRow + numColumn).value = valTotal;
+    
     valTotal=0;
     for( j= 1; j <=7; j++){
-      valTotal += Number(document.getElementById("Data"+totalWayPayments+j).value);
+      valTotal += Number(document.getElementById("Data"+ lastRow +j).value);
     }
-    document.getElementById("Data"+totalWayPayments+8).value = valTotal;
+    document.getElementById("Data"+ lastRow +8).value = valTotal;
   } // \FUNCTION updateTotalOnChange()
+
 /* To create a dom element  in the Timesheet form*/
 function addDay(i, j, value, disabledValue){
            var p = document.createElement("INPUT");
            p.id= "Data"+i+j;
+           p.name= "Data"+i+j;
            if ( (i == Description.length) || (j == 8) ) {
-                 p.className="form-control totalInfo";
+                 p.className="form-control" ;
              } else {
-                 p.className="form-control";
+                 p.className="form-control formInput";
              }
            p.setAttribute("type", "number");
            p.setAttribute("value", value);
@@ -80,14 +86,16 @@ function addDay(i, j, value, disabledValue){
 function writeDays( objTimecard ){
     var columnTotal=0;
     var rowTotal =0;
+
     for(var i=0; i < Description.length-1; i++ ){
         columnTotal =0;
         for(var j=1; j<8; j++){
-            addDay(i, j, objTimecard[i]['day'+j], !document.getElementById("activePeriod").value )
+            addDay(i, j, objTimecard[i]['day'+j], !document.getElementById("activePeriod").value );
             columnTotal += Number(objTimecard[i]['day'+j]);
           }
         addDay(i, j, columnTotal, true); // Fill the Info in the TOTAL  of the i row
       }
+    
     var grantTotal = 0; // Total of hour worked in the week.
     for(var j=1; j<8; j++){
           rowTotal=0;
@@ -100,7 +108,32 @@ function writeDays( objTimecard ){
       addDay(i, j, grantTotal, true);
     //  var p = document.createElement("INPUT");
   }// \FUNTION    writeDays()
+
+ function fillEmptyTimecard( ) {
+     let objTimecard =[]
+    for(var i=0; i < Description.length-1; i++ ){
+        objTimecard[i] = [];
+        for(var j=1; j<8; j++){
+            
+            objTimecard[i]['day'+j] = 0;
+            
+          }
+
+      }
+       
+      return objTimecard;
+ } 
+
+
 function setTimecardValues( objTimecard ){
+
+    if(objTimecard == "")
+    {
+        
+        objTimecard = fillEmptyTimecard( );
+        
+
+    }
 
     writeDays( objTimecard );
 
@@ -147,8 +180,20 @@ function endOfWeek(date)
     return new Date(date.setDate(lastday));
  
   }
+function createFormElement( name, value, type , status){
+    var p = document.createElement("INPUT");
+    p.id= name;
+    p.name= name;
+    p.className="form-control formInput";
+    p.setAttribute("type", type);
+    p.setAttribute("value", value);
 
-function setHeaderTimecard(User) {
+   p.disabled = status;
+
+   return p;
+   
+}
+function setHeaderTimecard(User ){
     
     const dToday = new Date(); 
     const firstDay = getFormattedDate(startOfWeek(dToday));
@@ -162,6 +207,12 @@ function setHeaderTimecard(User) {
     document.getElementById("period").innerHTML += firstDay + " to "+ lastDay;
     document.getElementById("id-date").innerHTML +=  getFormattedDate(dToday);
     document.getElementById("activePeriod").value = true;
+
+    document.getElementById("idUser").value = User.id;
+    document.getElementById("idPeriod").value = Period.firstDay;
+    
+    const Element = createFormElement(  "totalpayments",totalWayPayments-1,  "hidden", false);
+    document.getElementById("formTimecard" ).appendChild(Element);
 
     return Period;
 
@@ -182,6 +233,53 @@ function createFormTimecard(User){
 
         createFormTimecard(User);
   }
+
+  /*******************************************
+ Call a (PHP) Backend function to save data with the specific URL.
+********************************************/
+function postAJAX( Url, formClass ){
+    
+    if (window.XMLHttpRequest) {
+              xmlhttp = new XMLHttpRequest();
+     }else {
+       xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+     }
+
+    var elements = document.getElementsByClassName(formClass);
+    console.dir(elements);
+     var formData = new FormData(); 
+     for(var i=0; i<elements.length; i++)
+     {
+         formData.append(elements[i].name, elements[i].value);
+     }
+     
+     xmlhttp.onreadystatechange = function() {
+       if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+              console.dir(this.responseText);
+             if (this.responseText != "OK") {
+                alert("Sorry. No updated");
+             } else {
+                 return "OK";
+             }
+
+         }
+     }
+     
+     xmlhttp.open("post", Url, true);
+     xmlhttp.send(formData);  
+
+}
+
+  /**************************************************************************
+ Save all INFO to the Database, the employee can continue working on it later.
+**************************************************************************/
+$('#save').click(function () {
+    const myURL = "model/settimecard.php";
+    const formTimecard = "formInput";
+    postAJAX( myURL,  formTimecard);
+            
+
+   }); // /$('#save').click(function ());
 
   $(document).ready(  function() {
 
