@@ -10,8 +10,7 @@ const Description =[
     "TOTAL "
   ];
 const totalWayPayments = Description.length ;
-let firstDay ;
-let lasttDay;
+
  /*********************************************************************************
  Write in the DOM the Content of the Column Description of the Timecards
 *********************************************************************************/
@@ -40,7 +39,7 @@ function writePaymentsDescription(){
     var numColumn =  this.id[5];
 
     document.getElementById("save").disabled = false;
-    alert(document.getElementById("save").disabled);
+    
     var numRow = this. id[4];
     // To update the Total of the Row
     document.getElementById("Data"+numRow+8).value=0;
@@ -175,11 +174,6 @@ function getFormattedDate(date) {
 function startOfWeek(date)
 {
     var diff = date.getDate() - date.getDay() + (date.getDay() === 0 ? -6 : 1);
-    
-    const dd = new Date(date.setDate(diff));
-    console.dir(dd);
-    console.dir(dd+1)
-    alert( dd + 1);
 
     return new Date(date.setDate(diff));
 
@@ -261,6 +255,7 @@ function createFormTimecard(User){
   function Timecard( User ){
     document.getElementById("about-menu").addEventListener("click", menueAbout);
     document.getElementById("home-menu").addEventListener("click", menueHome);
+    document.getElementById("search-form").style.display = "block";
     createFormTimecard(User);
   }
 
@@ -307,6 +302,7 @@ $('#save').click(function () {
     const myURL = "model/settimecard.php";
     const formTimecard = "formInput";
     postAJAX( myURL,  formTimecard);
+    document.getElementById("save").disabled = true;
             
 
    }); // /$('#save').click(function ());

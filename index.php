@@ -23,7 +23,7 @@
        <span class="navbar-brand mb-0 h1"><img src="img/clock blue.png" width="25" height="25" alt=""></span>
        <a id="exit-nav" class="navbar-brand order-1 mr-0" href="http://localhost/jobsclocking/index.php" target="_self">
           <img id="image-exit-nav" src="" width="25" height="25" alt=""></span></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>   
         <div class="container-fluid">
@@ -39,21 +39,15 @@
             <i class="fas fa-bars"></i>
           </button>
           <div class="collapse navbar-collapse" id="navbarExample01">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav mr-auto ">
               <li class="nav-item active">
              <!--   <a class="nav-link" aria-current="page" href="#">Home</a> -->
-                <a id="home-menu" class="nav-link" href="#main">Home <span class="sr-only">(current)</span></a>
-              </li>
+                <a id="home-menu" class="nav-link" href="#main">Home <span class="sr-only">(current)</span></a></li>
               <li class="nav-item">
               <!--  <a class="nav-link" href="#about">About</a> -->
-                <a id="about-menu" class="nav-link" href="#about">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Reports</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">HH-RR</a>
-              </li>
+                <a id="about-menu" class="nav-link" href="#about">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Reports</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">HH-RR</a></li>
             </ul>
           </div>
         </div>
@@ -126,7 +120,6 @@
                </div>
               </div>
               <div id="button-main">
-               <button id="submmit" type="button" class="btn btn-secondary btn-lg">Submit</button>
                <button id="save" type="button" class="btn btn-secondary btn-lg" disabled>Save</button>
                <button id="restore" type="reset" class="btn btn-secondary btn-lg">Reset</button>
                <button id="print" type="button" class="btn btn-secondary btn-lg">Print</button>
@@ -156,23 +149,28 @@
            </ul>
             <section>
              <h2>Options</h2>
-             <h6>MENUE:</h6>
+             <h6>MENU:</h6>
              <image class="icon-position img-fluid" src="img/timesheet-menue.png" alt = "Timesheet Menue Image">
-             <p><br><span class="bold-text">Home:</span> Allow you to use and update the timesheet</p>
-             <p><span class="bold-text">About:</span> Give you all information about the System</p>
-             <p><span class="bold-text">Report:</span> You can access to diffrent report in correspondt with access level</p>
-             <p><span class="bold-text">HH-HH:</span> Menue use only for HH-RR Deparment. They can access to closed period, add emplyee and remove employee</p>
+             <p><br><span class="bold-text">Home:</span> Allow the user to use and update the timesheet in the active week.</p>
+             <p><span class="bold-text">About:</span> Give you all information about the System and how you can use it.</p>
+             <p><span class="bold-text">Report:</span> You can access to different report in correspondt with the user access level.</p>
+             <p><span class="bold-text">HH-HH:</span> This option is to be  use only for HH-RR Deparment. They can access to modify closed period, add emplyee, and remove employee<./p>
              <p><span class="bold-text">Period to Search:</span> Allow you to type and old and closed period. You can see it and print it.</p>
-             <h6>TIMESHEET Fileds:</h6>
+             <h6>TIMESHEET Fields:</h6>
              <image class="icon-position img-fluid" src="img/timesheet.png" alt = "Timesheet Cards Image">
             <p><span class="bold-text">Name:</span> First and Last name of the employee</p>
             <p><span class="bold-text">From:</span> The First day and the Last day of the week.</p>
             <p><span class="bold-text">Date:</span> The date of the month.</p>
-            <p><span class="bold-text">Description:</span> Differents way of payments.</p>
-            <p><span class="bold-text">Timesheet:</span> The employee have to update his work time, for Monday to Sunday. He has until Moday 10:00AM of the next week to update it.</p>
-            <p><span class="bold-text">Submit:</span> To submit the the week work time. After it. The employee caný do any change. To do any change, the employee has to contact the supervisor or the HH-RR Department.</p>
-            <p><span class="bold-text">Save:</span> Save last change to the system.</p>
-            <p><span class="bold-text">Restore:</span> Restore the old vlaue saved in the Database.</p>
+            <p><span class="bold-text">Description:</span> Differents way of payments. By default:</p>
+           <ul>
+            <li> <strong>Regulars</strong></li>
+            <li> <strong>Sicks</strong></li>
+            <li> <strong>Holidays</strong></li>
+            <li> <strong>Vacations</strong></li>
+           </ul>
+            <p><span class="bold-text">Timesheet:</span> The employee can update his working hour in this week, for Monday to Sunday. He has until Sunday 11:59 PM of the active week to update his hours.</p>
+            <p><span class="bold-text">Save:</span> Save the information to the database system.</p>
+            <p><span class="bold-text">Reset:</span> Restore the old value saved in the database system.</p>
             <p><span class="bold-text">Print:</span> Print the work report.</p>
           </section>
             <section>
