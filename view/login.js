@@ -119,6 +119,7 @@ function ajaxGET( myUrl ) {
     }
 
     if ( value.result == 1 ) {
+      document.getElementById("image-exit-nav").src= "img/exit.png";
       Timecard( value );
     }
 

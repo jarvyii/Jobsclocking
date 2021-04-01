@@ -10,6 +10,8 @@ const Description =[
     "TOTAL "
   ];
 const totalWayPayments = Description.length ;
+let firstDay ;
+let lasttDay;
  /*********************************************************************************
  Write in the DOM the Content of the Column Description of the Timecards
 *********************************************************************************/
@@ -19,7 +21,7 @@ function writePaymentsDescription(){
           var p = document.createElement("INPUT");
               p.style.margin =0;
             //  p.border-style = none;
-              p.className="form-control description bg-success";
+              p.className="form-control description tcBackgraound";
               p.setAttribute("type", "text");
               p.setAttribute("value", value);
             //  p.disabled = true;
@@ -37,7 +39,8 @@ function writePaymentsDescription(){
  function updateTotalOnChange(){
     var numColumn =  this.id[5];
 
-    
+    document.getElementById("save").disabled = false;
+    alert(document.getElementById("save").disabled);
     var numRow = this. id[4];
     // To update the Total of the Row
     document.getElementById("Data"+numRow+8).value=0;
@@ -90,7 +93,10 @@ function writeDays( objTimecard ){
     for(var i=0; i < Description.length-1; i++ ){
         columnTotal =0;
         for(var j=1; j<8; j++){
+
             addDay(i, j, objTimecard[i]['day'+j], !document.getElementById("activePeriod").value );
+
+            
             columnTotal += Number(objTimecard[i]['day'+j]);
           }
         addDay(i, j, columnTotal, true); // Fill the Info in the TOTAL  of the i row
@@ -169,6 +175,11 @@ function getFormattedDate(date) {
 function startOfWeek(date)
 {
     var diff = date.getDate() - date.getDay() + (date.getDay() === 0 ? -6 : 1);
+    
+    const dd = new Date(date.setDate(diff));
+    console.dir(dd);
+    console.dir(dd+1)
+    alert( dd + 1);
 
     return new Date(date.setDate(diff));
 
@@ -196,8 +207,9 @@ function createFormElement( name, value, type , status){
 function setHeaderTimecard(User ){
     
     const dToday = new Date(); 
-    const firstDay = getFormattedDate(startOfWeek(dToday));
-    const lastDay = getFormattedDate(endOfWeek(dToday));
+     firstDay = getFormattedDate(startOfWeek(dToday));
+     
+     lastDay = getFormattedDate(endOfWeek(dToday));
     const Period = {
         firstDay : firstDay,
         lastDay: lastDay
@@ -217,6 +229,23 @@ function setHeaderTimecard(User ){
     return Period;
 
 }
+/*****************************************************************************
+  Switch between de Main Menu and the About Menu
+******************************************************************************/
+function menueAbout() {
+  document.getElementById("main").style.display = "none";
+  document.getElementById("about").style.display = "block";
+  return false;
+} // \menueAbout()
+
+/**********************************************************************
+Switch between the About menu and the  Home MENU
+**********************************************************************/
+function menueHome() {
+ document.getElementById("main").style.display = "block";
+ document.getElementById("about").style.display = "none";
+    return false;
+} // \menueHome()
 
 function createFormTimecard(User){
       $("#loginform").remove();
@@ -230,8 +259,9 @@ function createFormTimecard(User){
 }
 
   function Timecard( User ){
-
-        createFormTimecard(User);
+    document.getElementById("about-menu").addEventListener("click", menueAbout);
+    document.getElementById("home-menu").addEventListener("click", menueHome);
+    createFormTimecard(User);
   }
 
   /*******************************************
