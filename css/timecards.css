@@ -15,8 +15,12 @@ html{
   opacity: 1;
 }      
 .footer {
-      background-color: #00004d;
-      color: white;
+
+     /* background-color: #00004d;
+      color: white; */
+
+      background-color: #e9ecef;
+     opacity: 1;
       text-align: center;
       width: 100%;
       position: fixed;

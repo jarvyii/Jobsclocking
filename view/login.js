@@ -64,9 +64,9 @@ function  createLoginForm() {
 
     
 
-    let Buttons = '<div class="container justify-content-center" style="background-color:#f1f1f1">';
-    Buttons += '<button type="button" id="buttonlogin">Login</button>';
-    Buttons += '<button id="buttoncancel" type="button" class="cancelbtn ml-2">Cancel</button>';
+    let Buttons = '<div class="container justify-content-center">';
+    Buttons += '<button type="button" class="btn btn-secondary btn-lg" id="buttonlogin">Login</button>';
+    Buttons += '<button id="buttoncancel" type="button" class="btn btn-secondary btn-lg ml-2">Cancel</button>';
     Buttons += '<span class="psw">Forgot <a href="#">password?</a></span></div>';
 
     document.getElementById("loginimput").innerHTML += Buttons; 
