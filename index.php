@@ -76,9 +76,12 @@
        <div id = "divlogin"></div>
        <!-- Timesheet form to update the worked hour-->
       <div id="timesheet" class="container text-center d-none">
-          <form id="formTimecard" class="formTimecard">
+          <form id="formTimecard" class="formTimecard"  method= "POST" target="_blank" action = "model\reportTimecard.php"> 
              <!--Hide field to be use in others area of the web -->
              <input type="hidden" id = "idUser" name="idUser" class = "formInput">
+             <input type="hidden" id = "username" name="username">
+             <input type="hidden" id = "startday" name="startday">
+             <input type="hidden" id = "lastday" name="lastday">
              <input type="hidden" id = "idPeriod" name="idPeriod" class = "formInput">
              <input type="hidden" id = "activePeriod" name="activePeriod" class = "formInput">
             <!-- The head of the timesheet -->
@@ -122,7 +125,7 @@
               <div id="button-main">
                <button id="save" type="button" class="btn btn-secondary btn-lg" disabled>Save</button>
                <button id="restore" type="reset" class="btn btn-secondary btn-lg">Reset</button>
-               <button id="print" type="button" class="btn btn-secondary btn-lg">Print</button>
+               <button id="btnReport" name = "btnReport" target = "_blank" type="submit" class="btn btn-secondary btn-lg">Print</button>
               </div>
           </form>
         </div>
@@ -134,6 +137,7 @@
       <div id="about">
         <div id="bars-about"></div>
        <h2>Timecards System</h2>
+       <hr>
        <p id="header-text">TimesCards System is a coorporate tool that provides a timesheet system
           with project organization features and time tracking. This software is WEB-based, and can be
           run on any Computer, across a network or in any movil device. Project budgeting, reporting,
@@ -149,6 +153,7 @@
            </ul>
             <section>
              <h2>Options</h2>
+             <hr>
              <h6>MENU:</h6>
              <image class="icon-position img-fluid" src="img/timesheet-menue.png" alt = "Timesheet Menue Image">
              <p><br><span class="bold-text">Home:</span> Allow the user to use and update the timesheet in the active week.</p>
@@ -156,7 +161,8 @@
              <p><span class="bold-text">Report:</span> You can access to different report in correspondt with the user access level.</p>
              <p><span class="bold-text">HH-HH:</span> This option is to be  use only for HH-RR Deparment. They can access to modify closed period, add emplyee, and remove employee<./p>
              <p><span class="bold-text">Period to Search:</span> Allow you to type and old and closed period. You can see it and print it.</p>
-             <h6>TIMESHEET Fields:</h6>
+             <h3>TIMESHEET Fields:</h3>
+             <hr>
              <image class="icon-position img-fluid" src="img/timesheet.png" alt = "Timesheet Cards Image">
             <p><span class="bold-text">Name:</span> First and Last name of the employee</p>
             <p><span class="bold-text">From:</span> The First day and the Last day of the week.</p>
@@ -169,9 +175,14 @@
             <li> <strong>Vacations</strong></li>
            </ul>
             <p><span class="bold-text">Timesheet:</span> The employee can update his working hour in this week, for Monday to Sunday. He has until Sunday 11:59 PM of the active week to update his hours.</p>
+           
+            <p><span class="bold-text">Form BUTTONS</span></p>
+            <hr>
+            <image class="icon-position img-fluid" src="img/formButtons.png" alt = "Timesheet Cards Image">
             <p><span class="bold-text">Save:</span> Save the information to the database system.</p>
             <p><span class="bold-text">Reset:</span> Restore the old value saved in the database system.</p>
             <p><span class="bold-text">Print:</span> Print the work report.</p>
+            <image class="icon-position img-fluid" src="img/reportTimecard.png" alt = "Timesheet Cards Image">
           </section>
             <section>
             </section>

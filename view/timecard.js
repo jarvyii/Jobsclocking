@@ -209,9 +209,12 @@ function setHeaderTimecard(User ){
         lastDay: lastDay
     }
 
-    document.getElementById("fullname").innerHTML += User.lastname + ",  "+ User.firstname;
-    document.getElementById("period").innerHTML += firstDay + " to "+ lastDay;
-    document.getElementById("id-date").innerHTML +=  getFormattedDate(dToday);
+    document.getElementById("fullname").innerHTML += "<strong>"+User.lastname + ",  "+ User.firstname + "</strong>";
+    document.getElementById("username").value =  User.lastname + ",  "+ User.firstname;
+    document.getElementById("period").innerHTML += "<strong>" + firstDay + " to "+ lastDay + "</strong>";
+    document.getElementById("startday").value = firstDay;
+    document.getElementById("lastday").value = lastDay;
+    document.getElementById("id-date").innerHTML +=  "<strong>" + getFormattedDate(dToday) + "</strong>";
     document.getElementById("activePeriod").value = true;
 
     document.getElementById("idUser").value = User.id;

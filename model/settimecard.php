@@ -1,5 +1,4 @@
 <?php
-require_once 'classTimecards.php';
 
 
 if( !isset($_POST["totalpayments"]) or  !isset($_POST["Data01"])  ){
@@ -26,10 +25,12 @@ if( !isset($_POST["totalpayments"]) or  !isset($_POST["Data01"])  ){
 
   }
 
- 
+ /*
   $objTimecards = new Timecards();
   $userTimecard = $objTimecards->setTimecard( $userId, $firstDay, $totalPayments, $Timecard );
 
   echo json_encode( $userTimecard );
+
+  */
 
 ?>
