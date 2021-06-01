@@ -17,7 +17,7 @@ const totalWayPayments = Description.length ;
 function writePaymentsDescription(){
    
       function addDescrption(value){    //Add the description to the column
-          var p = document.createElement("INPUT");
+          var p = document.createElement("INPUT"); // Capitalized
               p.style.margin =0;
             //  p.border-style = none;
               p.className="form-control description tcBackgraound";
@@ -180,12 +180,12 @@ function startOfWeek(date)
 }
 function endOfWeek(date)
   {
-     
+
     var lastday = date.getDate() - (date.getDay() - 1) + 6;
     return new Date(date.setDate(lastday));
- 
+
   }
-function createFormElement( name, value, type , status){
+function createFormElement( name, value, type , status){ // Duplicated logic with other JS?
     var p = document.createElement("INPUT");
     p.id= name;
     p.name= name;
@@ -265,8 +265,8 @@ function createFormTimecard(User){
   /*******************************************
  Call a (PHP) Backend function to save data with the specific URL.
 ********************************************/
-function postAJAX( Url, formClass ){
-    
+function postAJAX( Url, formClass ){ // Unneeded function
+
     if (window.XMLHttpRequest) {
               xmlhttp = new XMLHttpRequest();
      }else {
@@ -310,7 +310,7 @@ $('#save').click(function () {
 
    }); // /$('#save').click(function ());
 
-  $(document).ready(  function() {
+  $(document).ready(  function() { // Unneeded function
 
 
   });
