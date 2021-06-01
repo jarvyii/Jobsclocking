@@ -1,9 +1,9 @@
 
-function createDiv(Type, Id, className, Text)
+function createDiv(Type, Id, className, Text) // Inconsistent variable capitalization
 {
-   let Div = document.createElement( Type ); 
+   let Div = document.createElement( Type ); // Inconsistent spacing
 
-   if( Id != "" ) {
+   if( Id != "" ) { // Using double equals
     Div.id= Id;
    }
     
@@ -21,7 +21,7 @@ function createDiv(Type, Id, className, Text)
 
 function createForm() {
     const form = document.createElement("form");
-    form.setAttribute("method", "GET"); 
+    form.setAttribute("method", "GET");  // Using GET for login
     form.setAttribute("action", "../model/login.php" );
     form.id = "loginform";
     form.name = "loginform";
@@ -34,10 +34,10 @@ function  createLoginForm() {
     form.appendChild(divForm);
     $("#divlogin").append(form);
 
-    const divImage = '<div class="imgcontainer"><img src="img/login.jpg" alt="Login now" class="avatar"></div>';
-    document.getElementById("divForm").innerHTML = divImage;  
+    const divImage = '<div class="imgcontainer"><img src="img/login.jpg" alt="Login now" class="avatar"></div>'; // divImage only used here
+    document.getElementById("divForm").innerHTML = divImage;
 
-    const divloginimput= createDiv("div", "loginimput", "loginimput", "");
+    const divloginimput= createDiv("div", "loginimput", "loginimput", ""); // Typo in variable name
     form.appendChild(divloginimput);
     
     const loginimput = '<div><label for="uname"><b>E-Mail @:</b></label><input id="user-name"  autocomplete="username" type="text"  name="uname" required></div>';
@@ -48,7 +48,7 @@ function  createLoginForm() {
 
     let user = document.getElementById("user-name" );
     //user.title = "Pattern = Email Address";
-    user.pattern = "^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$";
+    user.pattern = "^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$"; // Seems unused
     user.placeholder = "account@domain.com";
     //const divPassword = createDiv("div", "divPassword", "", "");
     //form.appendChild( divPassword);
@@ -73,6 +73,7 @@ function  createLoginForm() {
 
 }
 
+// Unnecessary function
 function ajaxGET( myUrl ) {
   
     return new Promise( (resolve, reject) => {
@@ -132,12 +133,12 @@ function checkUser(){
 
     ajaxGET( myURL )
          .then( validUser )
-         .catch( err => alert( err ) );
+         .catch( err => alert( err ) ); // Using alert for error
 
 
 
 }
-function tovalidEmail() {
+function tovalidEmail() { // Unused function
 
  // regexp =  new RegExp('/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/');
 }
@@ -162,8 +163,8 @@ function showOrHideTip(show, element) {
   
 }
 function createListener(validator) {
-  return e => {
-    
+  return e => { // e is never defined,
+
     const text = e.target.value;
    
     const valid = validator(text);
@@ -174,7 +175,7 @@ function createListener(validator) {
     showOrHideTip(showTip, tooltip);
   };
 }
-
+    // Funky indentation
     createLoginForm();
     const usernameInput = document.getElementById("user-name"); 
     const buttonLogin = document.getElementById("buttonlogin"); 
@@ -195,6 +196,7 @@ function createListener(validator) {
             } );
  
 
+// Unused block
 $(document).ready(function(){
 
         
